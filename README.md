@@ -3,6 +3,12 @@
 ## Por que disso?
 Apenas estava estudando algumas coisas do Playground no XCode e decidi que poderia ser útil a mais pessoas
 
+## Não entendi? Como faz?
+Simples.
+Você pode clonar o repositório, ou simplesmente baixar um .zip e começar a ver o que tem lá dentro!
+(Um arquivo do playgroud do XCode, nada mais é que uma pasta cheia de coisas, por isso aqui no GitHub ele aparece como uma pasta cheia de coisas- se você baixar, o Mac ja vai identificar como um arquivo de Playground!)
+Talvez seja interessante clonar o repositório, já que eu pretendo manter ele atualizado e meio dinâmico com as coisas.
+
 ## Você manja de Playground?
 Não, mas estamos aí pra aprender e tentar ajudar masi pessoas nesse processo!
 
