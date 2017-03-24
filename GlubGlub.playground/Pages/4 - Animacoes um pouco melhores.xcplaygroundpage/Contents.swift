@@ -11,7 +11,7 @@ PlaygroundPage.current.liveView = background
 background.backgroundColor = UIColor.white
 
 let square = UIView(frame: CGRect(x: 50,y: 50,width: 100,height: 100))
-square.backgroundColor = UIColor.blue
+square.backgroundColor = UIColor.red
 
 background.addSubview(square)
 
@@ -23,7 +23,7 @@ background.addSubview(square)
  e para demosntrar vamos fazer com a cor do nosso quadrado e com a rotação dele
  */
 UIView.animate(withDuration: 5.0, animations: {
-    square.backgroundColor = UIColor.red
+    square.backgroundColor = UIColor.blue
     let rotation = CGAffineTransform(rotationAngle: -3.14)
     square.transform = rotation
 })

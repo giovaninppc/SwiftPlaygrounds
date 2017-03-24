@@ -7,7 +7,7 @@
 import UIKit
 import PlaygroundSupport
 
-var background = UIView(frame: CGRect(x: 0,y: 0,width: 200,height: 200))
+var background = UIView(frame: CGRect(x: 0,y: 0,width: 400,height: 400))
 
 PlaygroundPage.current.liveView = background
 background.backgroundColor = UIColor.white
@@ -23,7 +23,7 @@ background.addSubview(square)
  */
 UIView.animate(withDuration: 5.0, animations: {
     square.backgroundColor = UIColor.blue
-    square.center = CGPoint(x: 5, y: 10)
+    square.center = CGPoint(x: 200, y: 200)
 })
 /*:
  Nesse caso, eu só movimentei o meu quadrado da posicao (50, 50) - que é onde ele foi instanciado, para a posição (5, 10)*/
