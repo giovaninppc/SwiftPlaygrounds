@@ -29,5 +29,4 @@ UIView.animate(withDuration: 5.0, animations: {
 })
 
 PlaygroundPage.current
-
 //: [Next](@next)

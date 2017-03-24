@@ -4,7 +4,7 @@ import UIKit
 import PlaygroundSupport
 
 
-let container = UIView(frame: CGRect(x: 0,y: 0,width: 200,height: 200))
+let container = UIView(frame: CGRect(x: 0,y: 0,width: 300,height: 300))
 
 PlaygroundPage.current.liveView = container
 

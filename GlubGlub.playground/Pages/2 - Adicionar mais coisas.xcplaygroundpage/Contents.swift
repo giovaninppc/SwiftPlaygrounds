@@ -24,13 +24,11 @@ background.backgroundColor = UIColor.white
  ai a gente cria UIViews novas e adicionamos àquela view
  
  E usa as dimensoes do nosso fundo, como base para movimentacao dos outros objetos lá dentro*/
-
 let square = UIView(frame: CGRect(x: 50,y: 50,width: 50,height: 50))
 square.backgroundColor = UIColor.blue
 
 background.addSubview(square)
 PlaygroundPage.current
-
 /*:
  Agora, dentro da mesma View do background, temos nosso quadrado azul*/
 

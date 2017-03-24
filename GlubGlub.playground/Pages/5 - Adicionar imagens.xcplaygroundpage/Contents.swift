@@ -9,7 +9,6 @@ var background = UIView(frame: CGRect(x: 0,y: 0,width: 200,height: 300))
 
 PlaygroundPage.current.liveView = background
 background.backgroundColor = UIColor.white
-
 /*:
  Para adicionar uma imagem a gente precisa de um UIImage, e um objeto desse tipo tem varias formas de ser instanciado, vamos ver uma delas*/
 var image = UIImage(named: "cfa")
@@ -26,7 +25,6 @@ let imageView =  UIImageView(image: image)
 background.addSubview(imageView)
 
 PlaygroundPage.current
-
 /*:
  So que o que rolou?
  
