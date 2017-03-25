@@ -1,4 +1,5 @@
-//:## How about we make different kinds of Arpeggios?
+//:# *Arpeggios*
+//:### How about we make different kinds of Arpeggios?
 
 import UIKit
 import PlaygroundSupport
@@ -16,13 +17,16 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //:
 //: Go on and try It! Change the number below and see the difference when you touch the pannel
 let myScene = InteractivePanel()
-myScene.setNumberOfNotes(12)
+myScene.setNumberOfNotes(9)
 //: We can also change the musical mode of the Arpeggio we are playing by using the **setPlayMode** method
 //:
-//: the registered modes are "major" and "minor" scales
+//: the registered modes are:
+//: * "major"
+//: * "minor"
+//: * "mixolydian"
 //: 
 //: Choose the mode by chnaging the String on the method below
 myScene.setPlayMode("minor")
 PlaygroundPage.current.liveView = myScene.view
-//: Once you have finished understanding this viwe, you shold go to the next page
+//: Once you have finished understanding this view, you should go to the next page
 //: [Next](@next)

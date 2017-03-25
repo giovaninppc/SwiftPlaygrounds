@@ -11,12 +11,14 @@ public class InteractivePanel {
     private var image: UIImageView
     private var numberOfNotes: Int
     private var mode: Int
+    private var play: String
     
     /// Creates an instance of the Interactive Panel with the Standart number of notes on the Arpeggios
     public init() {
         
         numberOfNotes = 4
         mode = 0
+        play = "scale"
         
         view = UIView(frame: CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: sceneWidth, height: sceneHeight)))
         view?.backgroundColor = UIColor.white
@@ -39,12 +41,23 @@ public class InteractivePanel {
         numberOfNotes = numberOfNotesUp
     }
     
+    public func setToScales(){
+        play = "scale"
+    }
+    
+    public func setToArpeggios(){
+        play = "arpeggio"
+    }
+    
     public func setPlayMode(_ playMode: String){
         if playMode == "major"{
             mode = 0
         }
         else if playMode == "minor"{
             mode = 1
+        }
+        else if playMode == "mixolydian"{
+            mode = 2
         }
         else{
             print("INVALID MODE NAME")
@@ -54,7 +67,13 @@ public class InteractivePanel {
     @objc
     func tapView(tapGesture:UITapGestureRecognizer) {
         let pos = tapGesture.location(in: touchableView)
-        playArpeggio(x: Double(pos.x), y: Double(pos.y), numberOfNotes, mode)
+        if play == "scale" {
+            playScale(x: Double(pos.x), y: Double(pos.y), numberOfNotes, mode)}
+        else if play == "arpeggio" {
+            playArpeggio(x: Double(pos.x), y: Double(pos.y), numberOfNotes, mode)
+        }
+        else{
+            print("Invalid Play Command!")
+        }
     }
-    
 }

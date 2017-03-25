@@ -26,5 +26,5 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 let myScene = InteractivePanel()
 PlaygroundPage.current.liveView = myScene.view
 
-//: Once you have finished understanding this viwe, you shold go to the next page
+//: Once you have finished understanding this view, you should go to the next page
 //: [Next](@next)
