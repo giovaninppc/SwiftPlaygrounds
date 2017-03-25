@@ -17,7 +17,7 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //:
 //: Go on and try It! Change the number below and see the difference when you touch the pannel
 let myScene = InteractivePanel()
-myScene.setNumberOfNotes(9)
+myScene.setNumberOfNotes(8)
 //: We can also change the musical mode of the Arpeggio we are playing by using the **setPlayMode** method
 //:
 //: the registered modes are:

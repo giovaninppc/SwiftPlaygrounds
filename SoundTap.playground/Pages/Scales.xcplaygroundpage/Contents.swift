@@ -11,6 +11,7 @@ let sceneHeight : Int = 500
 PlaygroundPage.current.needsIndefiniteExecution = true
 //:
 let myScene = InteractivePanel()
+myScene.setToScales()
 myScene.setNumberOfNotes(7)
 //: 
 myScene.setPlayMode("major")
