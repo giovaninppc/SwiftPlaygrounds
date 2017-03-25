@@ -41,6 +41,6 @@ func updateView(){
 button.addTarget(button, action: Selector(("updateView")), for:  UIControlEvents.touchUpInside)
 
 /*
-button.addTarget(nil, action: #selector(updateView), for: .touchUpInside)
-*/
+ button.addTarget(nil, action: #selector(updateView), for: .touchUpInside)
+ */
 //: [Next](@next)

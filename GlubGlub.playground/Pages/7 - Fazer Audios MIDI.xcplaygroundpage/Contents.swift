@@ -49,7 +49,7 @@ while(true){
             
         var note = MIDINoteMessage(channel: 0,
                                     note: j,
-                                    velocity: 64,
+                                    velocity: 100,
                                     releaseVelocity: 0,
                                     duration: 0.5)
             
