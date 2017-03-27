@@ -31,7 +31,6 @@ public func playArpeggio (x: Double, y: Double, _ numberOfNotes:Int, _ playMode:
     var player = NewMusicPlayer(&musicPlayer)
     
     let pitch = 500 - y
-    
     player = MusicPlayerSetTime(musicPlayer!, 0.0)
     player = MusicPlayerSetSequence(musicPlayer!, createNoteArpeggio(initialNote: UInt8((90.0/Double(sceneHeight)) * pitch + 25)
         , noteSpeed: Float32( (500 - x) * (1.0/Double(sceneWidth)) + 0.1), numberOfNotes: numberOfNotes, mode: playMode))
@@ -53,8 +52,23 @@ public func playScale (x: Double, y: Double, _ numberOfNotes:Int, _ playMode: In
     let pitch = 500 - y
     
     player = MusicPlayerSetTime(musicPlayer!, 0.0)
-    player = MusicPlayerSetSequence(musicPlayer!, createNoteArpeggio(initialNote: UInt8((90.0/Double(sceneHeight)) * pitch + 25)
+    player = MusicPlayerSetSequence(musicPlayer!, createNoteScale(initialNote: UInt8((90.0/Double(sceneHeight)) * pitch + 25)
         , noteSpeed: Float32( (500 - x) * (1.0/Double(sceneWidth)) + 0.1), numberOfNotes: numberOfNotes, mode: playMode))
+    player = MusicPlayerStart(musicPlayer!)
+}
+
+public func playMySequence (x: Double, y: Double, _ noteSequence: [Int]){
+    
+    //Music Variables
+    //Creating MusicSequence
+    
+    var musicPlayer:MusicPlayer? = nil
+    var player = NewMusicPlayer(&musicPlayer)
+    
+    let pitch = 500 - y
+    player = MusicPlayerSetTime(musicPlayer!, 0.0)
+    player = MusicPlayerSetSequence(musicPlayer!, createNoteSequence(initialNote: UInt8((90.0/Double(sceneHeight)) * pitch + 25)
+        , noteSpeed: Float32( (500 - x) * (1.0/Double(sceneWidth)) + 0.1), noteSequence: noteSequence))
     player = MusicPlayerStart(musicPlayer!)
 }
 
@@ -65,12 +79,12 @@ public func playScale (x: Double, y: Double, _ numberOfNotes:Int, _ playMode: In
 ///   - velocity: the volume of the note (forsome reason its called velocity)
 ///   - delay: the delay to start the note
 ///   - duration: the duration of the note (Float32)
-func createNote(note: UInt8, velocity: Int, delay: Int, duration: Float32) -> MIDINoteMessage{
+func createNote(note: UInt8, velocity: UInt8, delay: UInt8, duration: Float32) -> MIDINoteMessage{
 
   return MIDINoteMessage(channel: 0,
-                          note: note
-                          velocity: velocity
-                          releaseVelocity: delay
+                          note: note,
+                          velocity: velocity,
+                          releaseVelocity: delay,
                           duration: duration)
 }
 
@@ -99,7 +113,6 @@ func createNoteArpeggio(initialNote:UInt8, noteSpeed speed: Float32, numberOfNot
     if mode == 2{
         modeArray = mixolydianChord
     }
-    
     //Creating MusicTrack
     var track:MusicTrack? = nil
     var musicTrack = MusicSequenceNewTrack(sequence!, &track)
@@ -122,15 +135,14 @@ func createNoteArpeggio(initialNote:UInt8, noteSpeed speed: Float32, numberOfNot
     }
     j -= UInt8(k)
     //Descendent Part
-    for a in 1 ... numberOfNotes{
+    for a in 1 ... (numberOfNotes - 1){
 
         let i = numberOfNotes - a - 1
-        j -= UInte(modeArray[i % 3])
+        j -= UInt8(modeArray[i % 3])
         note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
         musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
         time += Double(speed)
     }
-    
     return sequence
 }
 
@@ -183,7 +195,7 @@ func createNoteScale(initialNote:UInt8, noteSpeed speed: Float32, numberOfNotes:
     }
     j -= UInt8(k)
     //Descendent Part
-    for a in 1 ... numberOfNotes{
+    for a in 1 ... (numberOfNotes - 1){
         
         let i = numberOfNotes - a - 1
         j -= UInt8(modeArray[ i % 7])
@@ -194,3 +206,35 @@ func createNoteScale(initialNote:UInt8, noteSpeed speed: Float32, numberOfNotes:
 
     return sequence
 }
+
+
+func createNoteSequence(initialNote:UInt8, noteSpeed speed: Float32, noteSequence:[Int]) -> MusicSequence?{
+    
+    var sequence:MusicSequence? = nil
+    var musicSequence = NewMusicSequence(&sequence)
+    //Creating MusicTrack
+    var track:MusicTrack? = nil
+    var musicTrack = MusicSequenceNewTrack(sequence!, &track)
+    
+    var time = MusicTimeStamp(0.0)
+    
+    var note = MIDINoteMessage()
+    var j = initialNote
+    
+    //Creating sequence of Notes
+    for i in 0 ... (noteSequence.count - 1){
+        
+        if noteSequence[i] > 0 {
+            j += UInt8(noteSequence[i])
+        }
+        else if noteSequence[i] < 0{
+            let next = -1 * noteSequence[i]
+            j -= UInt8(next)
+        }
+        note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
+        musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
+        time += Double(speed)
+    }
+    return sequence
+}
+

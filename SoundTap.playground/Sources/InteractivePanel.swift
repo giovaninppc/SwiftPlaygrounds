@@ -12,13 +12,15 @@ public class InteractivePanel {
     private var numberOfNotes: Int
     private var mode: Int
     private var play: String
+    private var mySequence: [Int]
     
     /// Creates an instance of the Interactive Panel with the Standart number of notes on the Arpeggios
     public init() {
         
         numberOfNotes = 4
         mode = 0
-        play = "scale"
+        play = "arpeggio"
+        mySequence = [0]
         
         view = UIView(frame: CGRect(origin: CGPoint(x:0,y:0), size: CGSize(width: sceneWidth, height: sceneHeight)))
         view?.backgroundColor = UIColor.white
@@ -41,12 +43,20 @@ public class InteractivePanel {
         numberOfNotes = numberOfNotesUp
     }
     
+    public func setMySequence(mySequenceOfNotes: [Int]){
+        mySequence = mySequenceOfNotes
+    }
+    
     public func setToScales(){
         play = "scale"
     }
     
     public func setToArpeggios(){
         play = "arpeggio"
+    }
+    
+    public func setToMySequences(){
+        play = "sequence"
     }
     
     public func setPlayMode(_ playMode: String){
@@ -71,6 +81,9 @@ public class InteractivePanel {
             playScale(x: Double(pos.x), y: Double(pos.y), numberOfNotes, mode)}
         else if play == "arpeggio" {
             playArpeggio(x: Double(pos.x), y: Double(pos.y), numberOfNotes, mode)
+        }
+        else if play == "sequence"{
+            playMySequence(x: Double(pos.x), y: Double(pos.y), mySequence)
         }
         else{
             print("Invalid Play Command!")
