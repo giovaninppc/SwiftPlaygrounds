@@ -1,15 +1,19 @@
 import PlaygroundSupport
 import AudioToolbox
 
+// MARK - Internal Constants
+
 let sceneWidth  : Int = 500
 let sceneHeight : Int = 500
 let majorChord      : [Int] = [4, 3, 5]
 let minorChord      : [Int] = [3, 4, 5]
 let mixolydianChord : [Int] = [3, 3, 6]
 
-let majorScale       : [Int] = [2, 2, 2, 1, 2, 2, 2, 1]
-let minorScale       : [Int] = [2, 2, 2, 1, 2, 2, 2, 1]
-let mixolydianScale  : [Int] = [2, 2, 2, 1, 2, 2, 2, 1]
+let majorScale       : [Int] = [2, 2, 1, 2, 2, 2, 1]
+let minorScale       : [Int] = [2, 1, 2, 2, 1, 2, 2]
+let mixolydianScale  : [Int] = [2, 2, 1, 2, 2, 1, 2]
+
+// MARK - Sound Creation Functions
 
 /// This function creates and executes Arpeggio
 ///
@@ -52,16 +56,32 @@ public func playScale (x: Double, y: Double, _ numberOfNotes:Int, _ playMode: In
     player = MusicPlayerSetSequence(musicPlayer!, createNoteArpeggio(initialNote: UInt8((90.0/Double(sceneHeight)) * pitch + 25)
         , noteSpeed: Float32( (500 - x) * (1.0/Double(sceneWidth)) + 0.1), numberOfNotes: numberOfNotes, mode: playMode))
     player = MusicPlayerStart(musicPlayer!)
-    
+}
+
+/// Creates and returns a MIDI Note using the specified parameters 
+///
+/// - Parameters:
+///   - note: the frequency of the Note (UInt8)
+///   - velocity: the volume of the note (forsome reason its called velocity)
+///   - delay: the delay to start the note
+///   - duration: the duration of the note (Float32)
+func createNote(note: UInt8, velocity: Int, delay: Int, duration: Float32) -> MIDINoteMessage{
+
+  return MIDINoteMessage(channel: 0,
+                          note: note
+                          velocity: velocity
+                          releaseVelocity: delay
+                          duration: duration)
 }
 
 /// This function creates a new MusicSequence, and returns it
-/// it is created as an Arpeggion on a major scale with seven notes
-/// (4 notes up and 3 down the scale)
+/// it is created as an Arpeggio on a selected scale
 ///
 /// - Parameters:
 ///   - initialNote: The MIDI value for the first note of the Arpeggio
 ///   - speed: The duration of the notes that are going to be played
+///   - numberOfNotes: The number of notes that the Arpeggio is going to have
+///   - mode: A number wich represents a musical mode in order to be played
 /// - Returns: The mounted MusicSequence ready to be played
 func createNoteArpeggio(initialNote:UInt8, noteSpeed speed: Float32, numberOfNotes:Int, mode:Int) -> MusicSequence?{
     
@@ -93,81 +113,37 @@ func createNoteArpeggio(initialNote:UInt8, noteSpeed speed: Float32, numberOfNot
     //Creating an Arpeggio
     //Ascendent part
     for i in 0 ... (numberOfNotes - 1){
-        if (i % 3) == 0{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[0])
-            k = UInt8(modeArray[0])
-        }
-        else if (i % 3) == 1{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[1])
-            k = UInt8(modeArray[1])
-        }
-        else if (i % 3) == 2{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[2])
-            k = UInt8(modeArray[2])
-        }
+
+        note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
+        j += UInt8(modeArray[i % 3])
+        k = UInt8(modeArray[i % 3])
+        musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)    
+        time += Double(speed)
     }
     j -= UInt8(k)
     //Descendent Part
     for a in 1 ... numberOfNotes{
+
         let i = numberOfNotes - a - 1
-        if (i % 3) == 0{
-            j -= UInt8(modeArray[0])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 3) == 1{
-            j -= UInt8(modeArray[1])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            
-        }
-        else if (i % 3) == 2{
-            j -= UInt8(modeArray[2])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
+        j -= UInte(modeArray[i % 3])
+        note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
+        musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
+        time += Double(speed)
     }
     
     return sequence
 }
 
 
+/// This function creates a new MusicSequence, and returns it
+/// it is created as an Scale on a selected musical mode
+///
+/// - Parameters:
+///   - initialNote: The MIDI value for the first note of the Arpeggio
+///   - speed: The duration of the notes that are going to be played
+///   - numberOfNotes: The number of notes that the Arpeggio is going to have
+///   - mode: A number wich represents a musical mode in order to be played
+/// - Returns: The mounted MusicSequence ready to be played
 func createNoteScale(initialNote:UInt8, noteSpeed speed: Float32, numberOfNotes:Int, mode:Int) -> MusicSequence?{
     
     var sequence:MusicSequence? = nil
@@ -198,182 +174,23 @@ func createNoteScale(initialNote:UInt8, noteSpeed speed: Float32, numberOfNotes:
     //Creating an Arpeggio
     //Ascendent part
     for i in 0 ... (numberOfNotes - 1){
-        if (i % 8) == 0{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[0])
-            k = UInt8(modeArray[0])
-        }
-        else if (i % 8) == 1{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[1])
-            k = UInt8(modeArray[1])
-        }
-        else if (i % 8) == 2{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[2])
-            k = UInt8(modeArray[2])
-        }
-        else if (i % 8) == 3{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[3])
-            k = UInt8(modeArray[3])
-        }
-        else if (i % 8) == 4{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[4])
-            k = UInt8(modeArray[4])
-        }
-        else if (i % 8) == 5{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[5])
-            k = UInt8(modeArray[5])
-        }
-        else if (i % 8) == 6{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[6])
-            k = UInt8(modeArray[6])
-        }
-        else if (i % 8) == 7{
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            j += UInt8(modeArray[7])
-            k = UInt8(modeArray[7])
-        }
+        
+        note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
+        j += UInt8(modeArray[ i % 7])
+        k = UInt8(modeArray[ i % 7])
+        musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
+        time += Double(speed)
     }
     j -= UInt8(k)
     //Descendent Part
     for a in 1 ... numberOfNotes{
+        
         let i = numberOfNotes - a - 1
-        if (i % 8) == 0{
-            j -= UInt8(modeArray[0])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 1{
-            j -= UInt8(modeArray[1])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-            
-        }
-        else if (i % 8) == 2{
-            j -= UInt8(modeArray[2])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 3{
-            j -= UInt8(modeArray[3])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 4{
-            j -= UInt8(modeArray[4])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 5{
-            j -= UInt8(modeArray[5])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 6{
-            j -= UInt8(modeArray[6])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
-        else if (i % 8) == 7{
-            j -= UInt8(modeArray[7])
-            note = MIDINoteMessage(channel: 0,
-                                   note: j,
-                                   velocity: 200,
-                                   releaseVelocity: 0,
-                                   duration: speed)
-            musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
-            time += Double(speed)
-        }
+        j -= UInt8(modeArray[ i % 7])
+        note = createNote(note: j, velocity: 200, delay: 0, duration: speed)
+        musicTrack = MusicTrackNewMIDINoteEvent(track!, time, &note)
+        time += Double(speed)
     }
-    
+
     return sequence
 }
-
