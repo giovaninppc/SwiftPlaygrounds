@@ -17,7 +17,7 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 //
 //: Go on and try It! Change the number below and see the difference when you touch the pannel
 let myScene = InteractivePanel()
-myScene.setNumberOfNotes(4)
+myScene.setNumberOfNotes(10)
 //: An *Arpeggio* here is made by getting the first, the third and the fifth note of a Scale (and that is the most common way to do an Arpeggio on a piano).
 //:
 //: ![A Keyboard image should be displayed here. The keys are marked with their referenced notes, such as "C", "D#", "A"...](KeyboardChord.png)
@@ -33,7 +33,7 @@ myScene.setNumberOfNotes(4)
 //: The musical modes give a different feeling when we listen to them. We can usually compare the *major mode* to a happy feeling, and the *minor mode* to a sad one.
 //: 
 //: Choose the mode by chnaging the String on the method below
-myScene.setPlayMode("major")
+myScene.setPlayMode("minor")
 PlaygroundPage.current.liveView = myScene.view
 //: Once you have finished understanding this view, you should go to the next page
 //: [Next](@next)
