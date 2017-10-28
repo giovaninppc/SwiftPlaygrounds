@@ -13,7 +13,7 @@ Talvez seja interessante clonar o repositório, já que eu pretendo manter ele a
 Não, mas estamos aí pra aprender e tentar ajudar masi pessoas nesse processo!
 
 ## O que podemos fazer com esse código?
-Full Open Source - Ele vai apenas descrever como fazer algumas coisas simples, então não vai ter nenhuma ideia muito louca ou algoritimos sensacionais que possam ser roubados. Apenas materias que já existe na Internet, mas compiladinho do meu jeito.
+Open Source - Ele vai apenas descrever como fazer algumas coisas simples, então não vai ter nenhuma ideia muito louca ou algoritimos sensacionais que possam ser roubados. Apenas materias que já existe na Internet, mas compiladinho do meu jeito.
 
 ## Posso contar pros abiguinhos?
 Deve!
