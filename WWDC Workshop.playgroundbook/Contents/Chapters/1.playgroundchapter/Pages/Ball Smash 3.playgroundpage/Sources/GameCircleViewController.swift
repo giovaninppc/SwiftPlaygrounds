@@ -4,7 +4,7 @@ import UIKit
 public class GameCircleViewController : UIViewController {
     
     var timer: Timer?
-    var points: Int = 50
+    var points: Int = 0
     var scoreLabel = UILabel()
     
     /// Carregar View - override no lifecicle dessa view
@@ -53,32 +53,6 @@ public class GameCircleViewController : UIViewController {
     ///
     func updateScoreLabel(){
         scoreLabel.text = "Pontos: \(points)"
-        if points == 0{
-            gameOver()
-        }
-    }
-    
-    /// Faz o fim do jogo acontecer
-    ///
-    func gameOver(){
-
-        //Para de instanciar novas bolinhas
-        self.timer!.invalidate()
-
-        //Remove todas as bolinhas que tem na tela
-        for view in self.view.subviews{
-            view.removeFromSuperview()
-        }
-
-        //Pinta o fundo de preto
-        self.view.backgroundColor = .black
-
-
-        //Escreve GameOver na tela
-        let gameOverLabel = UILabel(frame: CGRect(x: 10, y: 20, width: 500, height: 100))
-        gameOverLabel.text = "GAME OVER ☠️"
-        gameOverLabel.textColor = .white
-        self.view.addSubview(gameOverLabel)
     }
 
     /// Cria circulos aleatorios na tela
@@ -89,24 +63,7 @@ public class GameCircleViewController : UIViewController {
         let Y = arc4random_uniform(UInt32(self.view.frame.maxY))
         let size = arc4random_uniform(100)
         
-        //Adiciona uma nova view do tipo Glowing Circle a tela - confugurando seu delegate
-        let circle = GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: RandomColor.randomColor())
-        circle.observer = self
-        self.view.addSubview(circle)
-        
-        //Remove um ponto do jogador e atualiza o label
-        points -= 1
-        updateScoreLabel()
+        //Adiciona uma nova view do tipo Glowing Circle a tela
+        self.view.addSubview(GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: RandomColor.randomColor()))
     }
 }
-
-extension GameCircleViewController: GlowingCircleObserver{
-    /// Se um circulo foi clicado
-    /// aumenta um na pontuação do jogador e atualiza o label
-    //
-    func circleTapped(){
-        points += 1
-        updateScoreLabel()
-    }
-}
-

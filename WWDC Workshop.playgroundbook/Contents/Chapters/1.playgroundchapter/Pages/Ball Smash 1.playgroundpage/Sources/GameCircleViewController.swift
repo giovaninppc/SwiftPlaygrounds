@@ -4,8 +4,6 @@ import UIKit
 public class GameCircleViewController : UIViewController {
     
     var timer: Timer?
-    var points: Int = 100
-    var scoreLabel = UILabel()
     
     /// Carregar View - override no lifecicle dessa view
     /// o metodo loadView() será chamado sempre que essa view for carregada
@@ -16,11 +14,13 @@ public class GameCircleViewController : UIViewController {
         view.backgroundColor = .white
         self.view = view
         
+        //Adicionar toque na tela
+        //Removemos o touch na tela principal
+//        let touch = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+//        self.view.addGestureRecognizer(touch)
+//
         //Adicionar textos
         addLabel()
-        
-        //Create Score LabeladdLabel
-        createScoreLabel()
         
         //Crar timer para imagens automaticas ao fundo
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(createRandomCircle), userInfo: nil, repeats: true)
@@ -40,20 +40,17 @@ public class GameCircleViewController : UIViewController {
         self.view.addSubview(label)
         self.view.addSubview(subtitle)
     }
-    
-    /// Adiciona um texto de pontuação à tela
+
+    /// Tratar o clique na tela
+    /// esse metodo foi configurado no TapHandler, será chamado toda vez que houver um toque na tela
     ///
-    func createScoreLabel(){
-        scoreLabel = UILabel(frame: CGRect(x: 20, y: 600, width: 500, height: 100))
-        scoreLabel.text = "Pontos: \(points)"
-        self.view.addSubview(scoreLabel)
-    }
-    
-    /// Atualiza a label com a pontuação do jogador
-    ///
-    func updateScoreLabel(){
-        scoreLabel.text = "Pontos: \(points)"
-    }
+//    @objc func tapHandler(){
+//        let X = arc4random_uniform(UInt32(self.view.frame.maxX))
+//        let Y = arc4random_uniform(UInt32(self.view.frame.maxY))
+//        let size = arc4random_uniform(100)
+//
+//        self.view.addSubview(GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: UIColor.red))
+//    }
 
     /// Cria circulos aleatorios na tela
     ///
@@ -63,24 +60,7 @@ public class GameCircleViewController : UIViewController {
         let Y = arc4random_uniform(UInt32(self.view.frame.maxY))
         let size = arc4random_uniform(100)
         
-        //Adiciona uma nova view do tipo Glowing Circle a tela - confugurando seu delegate
-        let circle = GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: RandomColor.randomColor())
-        circle.observer = self
-        self.view.addSubview(circle)
-        
-        //Remove um ponto do jogador e atualiza o label
-        points -= 1
-        updateScoreLabel()
+        //Adiciona uma nova view do tipo Glowing Circle a tela
+        self.view.addSubview(GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: RandomColor.randomColor()))
     }
 }
-
-extension GameCircleViewController: GlowingCircleObserver{
-    /// Se um circulo foi clicado
-    /// aumenta um na pontuação do jogador e atualiza o label
-    //
-    func circleTapped(){
-        points += 1
-        updateScoreLabel()
-    }
-}
-

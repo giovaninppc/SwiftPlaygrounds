@@ -3,8 +3,6 @@ import UIKit
 
 public class GlowingCircle : UIView{
     
-    var observer: GlowingCircleObserver?
-    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -29,13 +27,8 @@ public class GlowingCircle : UIView{
     /// Método para clique no círculo
     ///
     @objc func circleTapped(){
-        //Apara o circulo e avisa a view controller que isso aconteceu - observer
-        observer!.circleTapped()
+        //A unica coisa que ele faz por enquanto é sumir com o círculo
         self.removeFromSuperview()
     }
-}
-
-protocol GlowingCircleObserver {
-    func circleTapped()
 }
 
