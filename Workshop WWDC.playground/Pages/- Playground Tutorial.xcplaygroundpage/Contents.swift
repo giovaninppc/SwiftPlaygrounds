@@ -15,6 +15,14 @@
  - Criar conteúdo de ensino
  - (o que mais você quiser fazer **risos**)
  
+ O que vamos fazer é criar uma tela simples, e ver como adicionar novas informações nessa tela - como esse live view que está rodando agora!
+ - Interação com o usuário através de toques
+ - Adicionar novas informações
+ - Modificar o contexto
+ - Criar classes que dao override em classes do sistema
+ - Modificar o Lifecicle de uma view
+ - Ser Felizes
+ 
  */
 import PlaygroundSupport
 PlaygroundPage.current.liveView = GlowCircleViewController()

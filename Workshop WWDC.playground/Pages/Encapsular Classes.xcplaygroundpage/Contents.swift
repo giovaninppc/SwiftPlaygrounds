@@ -14,8 +14,6 @@
  Se você está num Xcode no Mac, pode ver na aba lateral de navegação de arquivos - se Você está num iPad, pode ver os arquivos auxiliares em (três pontinhos) -> Avançado -> Ver Arquivos fontes Auxiliares
  
 */
-
 import PlaygroundSupport
 PlaygroundPage.current.liveView = viewController()
-
 //: [Next](@next)
