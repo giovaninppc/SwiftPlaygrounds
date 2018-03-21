@@ -1,10 +1,11 @@
+import Foundation
 import UIKit
 
-class GlowCircleViewController : UIViewController {
+public class GlowCircleViewController : UIViewController {
     
     var timer: Timer?
     
-    override func loadView() {
+  override public func loadView() {
         let view = UIView()
         view.backgroundColor = .white
         self.view = view
@@ -20,9 +21,7 @@ class GlowCircleViewController : UIViewController {
         let Y = arc4random_uniform(UInt32(self.view.frame.maxY))
         let size = arc4random_uniform(100)
         
-        self.view.addSubview(glowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: UIColor.blue))
-        
-        print(self.view.subviews.count)
+        self.view.addSubview(GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: UIColor.blue))
     }
     
     @objc func createRandomCircle(){
@@ -30,8 +29,6 @@ class GlowCircleViewController : UIViewController {
         let Y = arc4random_uniform(UInt32(self.view.frame.maxY))
         let size = arc4random_uniform(100)
         
-        self.view.addSubview(glowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: UIColor.green))
-        
-        print(self.view.subviews.count)
+        self.view.addSubview(GlowingCircle(frame: CGRect(x: CGFloat(X), y: CGFloat(Y), width: CGFloat(size), height: CGFloat(size)), color: RandomColor.randomColor()))
     }
 }

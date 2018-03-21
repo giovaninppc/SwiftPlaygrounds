@@ -1,20 +1,23 @@
 import Foundation
 import UIKit
 
-class glowingCircle : UIView{
+public class GlowingCircle : UIView{
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super .init(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect, color: UIColor) {
+    public init(frame: CGRect, color: UIColor) {
         super .init(frame: frame)
+        
+        self.layer.cornerRadius = self.bounds.size.width/2;
+        self.layer.masksToBounds = true;
+        
         self.backgroundColor = color
-        self.layer.cornerRadius = frame.width
         
         growAnimation()
     }
@@ -23,7 +26,7 @@ class glowingCircle : UIView{
         UIView.animate(withDuration: 1, animations: {
             let frame = self.frame
             self.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width*2, height: frame.height*2)
-            self.layer.cornerRadius = self.frame.size.width
+            self.layer.cornerRadius = self.bounds.size.width/2;
             self.backgroundColor = .clear
         }) { (ok) in
             self.removeFromSuperview()

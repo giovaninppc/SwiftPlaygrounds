@@ -2,5 +2,10 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/GNP/BEPiD/Playgrounds/SoundTap.playground/Pages/Welcome!.xcplaygroundpage#CharacterRangeLen=7&amp;CharacterRangeLoc=772&amp;EndingColumnNumber=12&amp;EndingLineNumber=25&amp;StartingColumnNumber=5&amp;StartingLineNumber=25&amp;Timestamp=530932732.166419"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>

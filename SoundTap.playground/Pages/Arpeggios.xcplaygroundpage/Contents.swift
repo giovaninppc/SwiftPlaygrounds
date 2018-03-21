@@ -33,7 +33,7 @@ myScene.setNumberOfNotes(10)
 //: The musical modes give a different feeling when we listen to them. We can usually compare the *major mode* to a happy feeling, and the *minor mode* to a sad one.
 //: 
 //: Choose the mode by chnaging the String on the method below
-myScene.setPlayMode("minor")
+myScene.setPlayMode("major")
 PlaygroundPage.current.liveView = myScene.view
 //: Once you have finished understanding this view, you should go to the next page
 //: [Next](@next)

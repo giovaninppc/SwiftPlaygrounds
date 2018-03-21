@@ -25,6 +25,12 @@ public class WWDCViewController: UIViewController {
         //Adicionar toque na tela
         let touch = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
         self.view.addGestureRecognizer(touch)
+        
+        //Adicionar texto
+        let label = UILabel(frame: CGRect(x: 20, y: 600, width: 500, height: 100))
+        label.text = "San Jose, CA. 4-8 Jun"
+        label.textColor = UIColor.gray
+        self.view.addSubview(label)
     }
     
     /// Handles the tap

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='Start'/>
+        <page name='WWDC'/>
+        <page name='- Playground Tutorial'/>
+        <page name='Criar LiveView'/>
+        <page name='Adicionar Novas Views'/>
+        <page name='Adicionar Toques'/>
+        <page name='Capturar informação do toque'/>
+        <page name='Custmizar View'/>
+        <page name='Animar View'/>
+        <page name='Animar View 2'/>
+        <page name='Customizar Animacao'/>
+    </pages>
+</playground>
