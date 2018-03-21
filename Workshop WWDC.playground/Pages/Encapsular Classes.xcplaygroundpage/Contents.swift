@@ -1,5 +1,4 @@
 //: [Previous](@previous)
-
 //: ### Encapsular Classes
 /*: Encpsular classes nesse caso eu só quis dizer: *TIRA ESSAS CLASSES DAQUI*
  
