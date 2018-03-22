@@ -70,16 +70,17 @@ case 8...15:
 case 16..<20:
     print("Valor está entre 16 e 19")
     
-    /*:
-     O comando switch deve ser exaustivo. Sendo assim, caso
-     nem todos os valores possíveis sejam tratados em uma cláusula
-     é necessário incluir uma cláusula *default* para tratar todos
-     os valores não cobertos:
-     */
+/*:
+ O comando switch deve ser exaustivo. Sendo assim, caso
+ nem todos os valores possíveis sejam tratados em uma cláusula
+ é necessário incluir uma cláusula *default* para tratar todos
+ os valores não cobertos:
+ */
 default:
     print("Outro valor")
 }
 
+//: [Next](@next)
 
 //#-hidden-code
 import PlaygroundSupport
@@ -87,5 +88,3 @@ let view = SimpleViewController()
 view.addLabel(text: "\(x) é positivo\n\(x) menor que 100\ny não era nil\ny era nil")
 PlaygroundPage.current.liveView = view
 //#-end-hidden-code
-
-//: [Next](@next)
