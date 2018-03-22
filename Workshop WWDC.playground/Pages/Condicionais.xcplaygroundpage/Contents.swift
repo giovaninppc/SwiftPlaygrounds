@@ -25,15 +25,15 @@ else {
  *Os parênteses no if, sõ opcionais*
  
  A condição, é sempre uma expressão booleana - ou seja uma expressão que retorna verdadeiro ou falso. E para números, eles podem ser avaliados usando os operadores comumente conhecidos:
- - > Maior que
- - < Menor que
- - >= Maior ou igual
- - <= Menor ou igual
- - == Igual
+ -  .> Maior que
+ -  < Menor que
+ -  .>= Maior ou igual
+ -  <= Menor ou igual
+ -  == Igual
  */
 /*:
  
- Um comando condicional um pouco mais avançado, é pra ratr mlehor os valores opcionais: o **if-let**
+ Um comando condicional um pouco mais avançado, é pra tratar mlehor os valores opcionais: o **if-let**
  
  Ele atribui o valor do Optional para a variável que você coloca na frente od let, e no bloco de código interno você pode usar essa variável.
  Ou seja, ele só executa o código interno se o Optional não for nil.
