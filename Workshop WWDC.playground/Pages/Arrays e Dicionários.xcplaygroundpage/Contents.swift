@@ -38,7 +38,7 @@ dicIntString[2]
 //#-hidden-code
 import PlaygroundSupport
 let view = SimpleViewController()
-view.addLabel(text: "intArray2[0] = \(intArray2[0])\nintArray2[1] = \(intArray2[1])\ndicEmoji["gato"] = \(dicEmoji["gato"])\ndicIntString[2] = \(dicIntString[2])")
+view.addLabel(text: "intArray2[0] = \(intArray2[0])\nintArray2[1] = \(intArray2[1])\ndicEmoji[\"gato\"] = \(String(describing: dicEmoji["gato"]))\ndicIntString[2] = \(String(describing: dicIntString[2]))")
 PlaygroundPage.current.liveView = view
 //#-end-hidden-code
 

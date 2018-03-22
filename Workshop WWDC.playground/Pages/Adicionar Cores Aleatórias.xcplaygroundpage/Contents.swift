@@ -1,4 +1,6 @@
 //: [Previous](@previous)
+//: # Playground Tutorial
+//: ## Cores Aleatórias
 /*:
  Aqui, uma nova classe foi criada - a Random Color
  

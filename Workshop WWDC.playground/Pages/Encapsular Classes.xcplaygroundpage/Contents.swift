@@ -1,5 +1,6 @@
 //: [Previous](@previous)
-//: ### Encapsular Classes
+//: # Playground Tutorial
+//: ## Encapsular Classes
 /*: Encpsular classes nesse caso eu só quis dizer: *TIRA ESSAS CLASSES DAQUI*
  
  A complexidade do seu código não precisa estar explícita,

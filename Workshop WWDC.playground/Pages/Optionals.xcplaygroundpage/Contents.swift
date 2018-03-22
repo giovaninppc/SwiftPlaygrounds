@@ -38,7 +38,7 @@ y = x! + y
 //#-hidden-code
 import PlaygroundSupport
 let view = SimpleViewController()
-view.addLabel(text: "intArray2[0] = \(intArray2[0])\nintArray2[1] = \(intArray2[1])\ndicEmoji["gato"] = \(dicEmoji["gato"])\ndicIntString[2] = \(dicIntString[2])")
+view.addLabel(text: "x = \(x ?? 0)\ny = \(y)")
 PlaygroundPage.current.liveView = view
 //#-end-hidden-code
 
