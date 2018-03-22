@@ -29,7 +29,7 @@ let completeSentence = implicitString + String(implictDouble)
 /*:
  E se você tentar descomentar a linha abaixo - vai gerar outro erro 🙃
  */
-//let errosr= implicitString + implictDouble
+//let error= implicitString + implictDouble
 /*:
  Uma loucura é que Swift aceita caracteres especiais e unicodes!
  

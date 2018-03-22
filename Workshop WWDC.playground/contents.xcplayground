@@ -11,6 +11,7 @@
         <page name='Condicionais'/>
         <page name='Loops'/>
         <page name='Funções'/>
+        <page name='Classes'/>
         <page name='- Playground Tutorial'/>
         <page name='Criar LiveView'/>
         <page name='Adicionar Novas Views'/>
