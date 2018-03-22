@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 //: # Ball Smash
+//: ### Game Over
 /*:
  Agora vamos adicionar um Game Over!
  

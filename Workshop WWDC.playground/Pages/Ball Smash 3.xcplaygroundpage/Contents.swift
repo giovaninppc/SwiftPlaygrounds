@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 //: # Ball Smash
+//: ### Contabilizar Pontos
 /*:
  Agora precisamos contabilizar os pontos de algum jeito!
  

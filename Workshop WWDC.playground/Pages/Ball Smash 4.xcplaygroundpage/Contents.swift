@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 //: # Ball Smash
+//: ### Atualizar pontos
 var points: Int = 0
 func updateScoreLabel(){}
 /*:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='Start'/>
         <page name='WWDC'/>
@@ -28,5 +28,7 @@
         <page name='Ball Smash 3'/>
         <page name='Ball Smash 4'/>
         <page name='Ball Smash 5'/>
+        <page name='Ball Smash 6'/>
+        <page name='Obrigado!'/>
     </pages>
 </playground>
