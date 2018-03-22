@@ -44,7 +44,7 @@ public class GameCircleViewController : UIViewController {
     /// Adiciona um texto de pontuação à tela
     ///
     func createScoreLabel(){
-        scoreLabel = UILabel(frame: CGRect(x: 20, y: 600, width: 500, height: 100))
+        scoreLabel = UILabel(frame: CGRect(x: 20, y: 500, width: 500, height: 100))
         scoreLabel.text = "Pontos: \(points)"
         self.view.addSubview(scoreLabel)
     }

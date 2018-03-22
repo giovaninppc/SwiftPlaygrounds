@@ -13,9 +13,8 @@
 //:características de várias paradigmas de programação como: estruturada,
 //:orientada o objetos, orientada a protocolos e funcional.
 //:
-//:Como todo tutorial iniciemos com o Hello, World 😁!
-
-
+//: E é claro que a primeira coisa que vamos fazer é o Hello World!
+//: Se você está no Mac - esse print vai aparecer no seu console - geralmente na parte debaixo da tela. Se você está no iPad (Oh oh...) ele nao vai aparecer... Porque o Playgrounds do iPad nao apresenta um console.
 
 print("Hello, World!")
 
