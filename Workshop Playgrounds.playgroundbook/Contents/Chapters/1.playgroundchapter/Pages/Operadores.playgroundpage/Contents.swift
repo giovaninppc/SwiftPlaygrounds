@@ -22,7 +22,7 @@ let booleanValue = true
 let a = 3
 let b = 5
 
-a + b
+let c = a + b
 
 
 //: O  operador ternário disponível é o operador ternário **?** lógico que
@@ -40,9 +40,9 @@ expressão ? "Sim" : "Não"
 //: criação de operadores customizados, o que está fora do escopo deste
 //: conteúdo:
 
-2 + 3
-4.2 + 3
-"Olá" + " Mundo!"
+let d = 2 + 3
+let e = 4.2 + 3
+let f = "Olá" + " Mundo!"
 
 
 //: [Next](@next)

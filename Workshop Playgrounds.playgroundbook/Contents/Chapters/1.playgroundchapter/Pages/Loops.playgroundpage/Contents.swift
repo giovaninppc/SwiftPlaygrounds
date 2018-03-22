@@ -10,12 +10,10 @@ var x: Int = 0
 while(x > 5){
     x += 1
 }
-x
 
 repeat{
     x -= 1
 }while(x>0)
-x
 
 /*:
  A diferença é que o repeat-while, é executado sempre pelo menos uma vez - já que a condição é verificada apenas ao final do loop*/

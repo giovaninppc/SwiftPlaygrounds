@@ -67,7 +67,7 @@ multiply(5, by: 2)
 //Atribuir uma função a uma variável, faz com que os labels sejam perdidos
 let M = multiply
 //Usar a função guardada
-M(4,6)
+let a = M(4,6)
 
 
 //: [Next](@next)

@@ -16,8 +16,8 @@ let stringArray = ["Amor", "Azul",  "Pão de queijo"]
  Podemos acessar cada posição de um array (onde tiver array, se te deixar mais confortável leia vetor) usando as chaves e o numero da posição.
  (*lembrando que em swift arrays começam no zero 😉*)
  */
-intArray2[0]
-intArray2[1]
+let a = intArray2[0]
+let b = intArray2[1]
 /*:
  E um dicionário é uma relação de chave:valor.
  *Q?*
@@ -26,12 +26,12 @@ intArray2[1]
  */
 let dicEmoji = ["cachorro":"🐶", "gato":"🐱",
                 "urso":"🐻","panda":"🐼","elefante":"🐘","porco":"🐖"]
-dicEmoji["gato"]
+let c = dicEmoji["gato"]
 /*:
  Você pode explicitar o tipo do seu dicionário
  */
 let dicIntString: [Int:String] = [0:"Zero", 1:"um", 2:"dois"]
-dicIntString[2]
+let d = dicIntString[2]
 
 
 //: [Next](@next)

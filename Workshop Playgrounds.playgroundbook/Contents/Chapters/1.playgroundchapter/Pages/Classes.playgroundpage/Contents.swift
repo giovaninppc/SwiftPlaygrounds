@@ -20,8 +20,8 @@ class MyClass{
 let myObject = MyClass()
 
 //E acessar as propriedades da sua classe
-myObject.x
-myObject.y
+let a = myObject.x
+let b = myObject.y
 /*:
  E para os conhecedores de OOP (ou POO), podemos fazer herança entre classes:
  */
@@ -30,8 +30,8 @@ class MyChildClass: MyClass{}
 
 let myChildObject = MyChildClass()
 
-myChildObject.x
-myChildObject.y
+let c = myChildObject.x
+let d = myChildObject.y
 /*:
  Podemos extender uma classe adicionando mais coisas
  */
@@ -41,7 +41,7 @@ extension MyClass{
         return number * value
     }
 }
-myObject.multiply(4, by: 5)
+let e = myObject.multiply(4, by: 5)
 /*:
  Quando criamos uma classe, não precisamos definir todas as suas variáveis na hora de criação - mas se não o fizermos, precisamos de um construtor para a classe - um método **init**
  */
