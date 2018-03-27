@@ -1,7 +1,8 @@
 # SwiftPlaygrounds
 
 ## Por que disso?
-Apenas estava estudando algumas coisas do Playground no XCode e decidi que poderia ser útil a mais pessoas
+Apenas estava estudando algumas coisas do Playground no XCode e decidi que poderia ser útil a mais pessoas.
+Além disso, em 2017 me tornei um Apple Campus Rep vinculado à Unicamp - com o objetivo de aproximar tecnologia e educação. Esse paygrounds so uma forma de ajudar a transmitir esse conhecimento.
 
 ## Não entendi? Como faz?
 Simples.
@@ -14,6 +15,7 @@ Não, mas estamos aí pra aprender e tentar ajudar masi pessoas nesse processo!
 
 ## O que podemos fazer com esse código?
 Open Source - Ele vai apenas descrever como fazer algumas coisas simples, então não vai ter nenhuma ideia muito louca ou algoritimos sensacionais que possam ser roubados. Apenas materias que já existe na Internet, mas compiladinho do meu jeito.
+Os arquivos que foram usados em workshops têm *Workshop* no nome - claramente, e fazem parte de uma série de Workshops que fiz na Unicamp enquanto Apple Campus Rep.
 
 ## Posso contar pros abiguinhos?
 Deve!
