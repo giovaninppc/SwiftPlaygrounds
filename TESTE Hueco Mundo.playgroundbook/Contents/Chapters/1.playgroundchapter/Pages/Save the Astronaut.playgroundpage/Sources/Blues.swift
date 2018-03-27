@@ -12,13 +12,23 @@ import SpriteKit
 let rotationAngleBlue: CGFloat = 0.4
 let animationDurationBlue: Double = 4.0
 
-public class Blues: SKSpriteNode {
+class Blues: SKSpriteNode {
 
-    class func animate(node: SKSpriteNode){
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+        animate()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        animate()
+    }
+    
+    func animate(){
         var animation: SKAction = SKAction.sequence([SKAction.rotate(byAngle: rotationAngleBlue, duration: animationDurationBlue),
                                                      SKAction.rotate(byAngle: -1.0*rotationAngleBlue, duration: animationDurationBlue)])
         animation = SKAction.repeatForever(animation)
-        node.run(animation)
+        self.run(animation)
     }
     
 }

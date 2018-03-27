@@ -1,13 +1,12 @@
 //: A SpriteKit based Playground
+//#-hidden-code
 
 import PlaygroundSupport
 import SpriteKit
 
 
-let view = GameViewController()
-PlaygroundPage.current.liveView = GameViewController()
+let liveView = GameViewController()
+PlaygroundPage.current.liveView = liveView
+//#end-hiden-code
 
-
-//view.backpackProgram = [.right, .down, .left, .left, .left, .up, .up, .up, .left, .left]
-//view.ProgramBackpack()
-
+liveView.programBackpack([.up, .up, .down, .left, .right, .left, .right])

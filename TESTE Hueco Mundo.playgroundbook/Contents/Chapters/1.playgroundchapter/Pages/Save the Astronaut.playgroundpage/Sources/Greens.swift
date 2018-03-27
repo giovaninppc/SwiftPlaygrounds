@@ -12,12 +12,22 @@ import SpriteKit
 let vectorSizeGreen: CGFloat = 50.0
 let animationDurationGreen: Double = 3
 
-public class Greens: SKSpriteNode {
+class Greens: SKSpriteNode {
 
-    class func animate(node: SKSpriteNode){
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+        animate()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        animate()
+    }
+    
+    func animate(){
         var animation: SKAction = SKAction.sequence([SKAction.move(by: CGVector(dx: vectorSizeGreen, dy: 0), duration: animationDurationGreen),
                                            SKAction.move(by: CGVector(dx: -1*vectorSizeGreen, dy: 0), duration: animationDurationGreen)])
         animation = SKAction.repeatForever(animation)
-        node.run(animation)
+        self.run(animation)
     }
 }
