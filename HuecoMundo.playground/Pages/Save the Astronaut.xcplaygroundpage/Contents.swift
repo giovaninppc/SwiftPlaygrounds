@@ -5,8 +5,8 @@ import PlaygroundSupport
 import SpriteKit
 
 
-let liveView = GameViewController()
-PlaygroundPage.current.liveView = liveView
+let astronaut = GameViewController()
+PlaygroundPage.current.liveView = astronaut
 //#end-hiden-code
 
-liveView.programBackpack([.up, .up, .down, .left, .right, .left, .right])
+astronaut.programBackpack([.up, .up, .down, .left, .right, .left, .right])

@@ -47,8 +47,11 @@ public class GameScene: SKScene {
             body.collisionBitMask = PhysicsCategory.none
         }
         
+        loadEnemies()
+        
         //Move answer
-        moveAstronaut([.right, .down, .left, .left, .left, .up, .up, .up, .left, .left])
+       // moveAstronaut([.right, .down, .left, .left, .left, .up, .up, .up, .left, .left])
+        //moveAstronaut(backpackprogram)
         
         //Defining camera Scale
         self.camera?.xScale = 1.5
@@ -149,7 +152,17 @@ public class GameScene: SKScene {
         }
     }
     
+    /// If Touch - move the astronaut
+    ///
+    /// - Parameter tapGestureRecognizer: tapGesture
     @objc func handleTapGesture(tapGestureRecognizer:UITapGestureRecognizer){
+        
+        //Get the backpack program
+        if let moves = spaceDelegate?.getMoves() {
+             moveAstronaut(moves)
+        }
+        
+        //Start Moving
         if moving == false{
             moving = true
             self.astronautNode.run(astronautMoveAction)
@@ -180,6 +193,34 @@ public class GameScene: SKScene {
             spaceDelegate?.didNotLeavePlanet()
         }
     }
+    
+    /// Start all enemies animations
+    ///
+    func loadEnemies(){
+        //Purples
+        for i in 1...4{
+            let purple = self.childNode(withName: "purple0\(i)")! as! SKSpriteNode
+            Purples.animate(node: purple)
+        }
+        
+        //Yellows
+        for i in 1...4{
+            let yellow = self.childNode(withName: "yellow0\(i)")! as! SKSpriteNode
+            Yellows.animate(node: yellow)
+        }
+        
+        //Greens
+        for i in 1...3{
+            let green = self.childNode(withName: "green0\(i)")! as! SKSpriteNode
+            Greens.animate(node: green)
+        }
+        
+        //Blues
+        for i in 1...4{
+            let blue = self.childNode(withName: "blue0\(i)")! as! SKSpriteNode
+            Blues.animate(node: blue)
+        }
+    }
 }
 
 extension GameScene: SKPhysicsContactDelegate{
@@ -203,4 +244,5 @@ extension GameScene: SKPhysicsContactDelegate{
 protocol SpaceDelegate{
     func didLeavePlanet()
     func didNotLeavePlanet()
+    func getMoves() ->  [AstronautMoves]
 }

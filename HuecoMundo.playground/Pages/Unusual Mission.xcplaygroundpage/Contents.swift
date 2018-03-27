@@ -1,7 +1,8 @@
-//: [Previous](@previous)
+//#-hidden-code
+import UIKit
+import PlaygroundSupport
+//#-end-hidden-code
 
-import Foundation
+PlaygroundPage.current.liveView = UnusualMissionStory()
 
-var str = "Hello, playground"
-
-//: [Next](@next)
+//: [Let's save the Astronaut!](@next)

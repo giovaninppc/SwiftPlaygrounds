@@ -41,7 +41,7 @@ public class WrongEndView: UIView{
         //Add congratulations text
         let label = UILabel(frame: CGRect(x: 20, y: 200, width: 500, height: 300))
         label.textColor = .white
-        label.text = "Oh no!\nThe astronaut is Trapped!\nYou should try another programming\nto your backpack...\n=/"
+        label.text = "Oh no!\nThe astronaut is Trapped!\nYou should try another program\non your backpack...\n=/"
         label.numberOfLines = 5
         
         self.addSubview(label)
