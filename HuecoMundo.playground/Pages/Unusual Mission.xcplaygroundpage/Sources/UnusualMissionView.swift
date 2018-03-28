@@ -25,7 +25,6 @@ public class UnusualMissionStory: UIViewController{
         //Add image view to story
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 380 , height: 630))
         imageView?.contentMode = .scaleAspectFit
-        imageView?.backgroundColor = .red
         self.view.addSubview(imageView!)
         
         //Add touch to play story
@@ -41,6 +40,11 @@ public class UnusualMissionStory: UIViewController{
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(continueStory), userInfo: nil, repeats: true)
         
         self.view.removeGestureRecognizer(self.tapGesture!)
+        
+        //Load first Image
+        self.imageView!.image = story[0]
+        counter += 1
+        player.playFire()
         
     }
     
@@ -69,8 +73,6 @@ public class UnusualMissionStory: UIViewController{
         }
         
         switch counter {
-        case 0:
-            player.playFire()
         case 2:
             player.playConnect()
         case 3:
