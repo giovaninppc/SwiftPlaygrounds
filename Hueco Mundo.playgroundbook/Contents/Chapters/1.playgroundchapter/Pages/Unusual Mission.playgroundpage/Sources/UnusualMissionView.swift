@@ -1,9 +1,8 @@
 import UIKit
-/*
+
 public class UnusualMissionStory: UIViewController{
     
     var imageView: UIImageView?
-    var tapGesture: UITapGestureRecognizer?
     var timer: Timer?
     var counter: Int = 0
     var player = Player()
@@ -23,21 +22,21 @@ public class UnusualMissionStory: UIViewController{
         self.view.backgroundColor = .white
         
         //Add image view to story
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 380 , height: 630))
-        imageView?.backgroundColor = UIColor.blue
-        
-        //imageView?.
-        
-        
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 600 , height: 820))
         imageView?.contentMode = .scaleAspectFit
         
-        
+        //Create constraints to fit the imageView
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = NSLayoutConstraint(item: imageView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: imageView!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let leftConstraint = NSLayoutConstraint(item: imageView!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0)
+        let rightConstraint = NSLayoutConstraint(item: imageView!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0)
         
         self.view.addSubview(imageView!)
+        self.view.addConstraints([topConstraint,leftConstraint,rightConstraint,bottomConstraint])
         
         //Add touch to play story
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(startStory))
-        self.view.addGestureRecognizer(self.tapGesture!)
+        startStory()
         
     }
     
@@ -47,13 +46,9 @@ public class UnusualMissionStory: UIViewController{
         //Start the story
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(continueStory), userInfo: nil, repeats: true)
         
-        self.view.removeGestureRecognizer(self.tapGesture!)
-        
-        //Load first Image
-        self.imageView!.image = story[0]
+        self.imageView?.image = story[0]
         counter += 1
         player.playFire()
-        
     }
     
     /// Keep showing the story images
@@ -96,4 +91,3 @@ public class UnusualMissionStory: UIViewController{
         counter += 1
     }
 }
- */

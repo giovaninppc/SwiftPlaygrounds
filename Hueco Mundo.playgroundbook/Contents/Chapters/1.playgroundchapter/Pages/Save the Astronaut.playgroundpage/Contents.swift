@@ -11,6 +11,7 @@ PlaygroundPage.current.liveView = astronaut
 //: [Previous](@previous)
 //: # Save the Astronaut!
 //: ### We need your help to bring him out of that strange planet
+//:
 /*:
  The astronaut is equipped with a 4-directional jetpack on his backpack *(perfect for cool space missions 👩‍🚀👍)*
  
@@ -34,8 +35,14 @@ PlaygroundPage.current.liveView = astronaut
  
  ![Gestures used on the Game: Pinch to zoom and Tap to run the code on the Backpack](controllers.png "How to interact with the scene")
  
- When your are ready tap the planet - and your program will run on the backpack.
+ When your are ready, tap the planet - and your program will run on the backpack.
  */
-//: Edit the porgram on the line below, so you can save the astronaut.
-//Send program to the Backpack
-astronaut.programBackpack([/*#-editable-code */.up/*#-end-editable-code*/])
+//:
+/*:
+ ### Edit the program on the line below, so you can save the astronaut.
+ - Write the program to be sent to the Backpack
+ - You can add as many commands as you like
+ - But it will only execute once
+ */
+astronaut.programBackpack([/*#-editable-code */.up, .down, .left, .right/*#-end-editable-code*/])
+
