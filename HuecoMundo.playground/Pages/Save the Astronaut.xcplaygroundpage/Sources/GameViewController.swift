@@ -13,6 +13,7 @@ import GameplayKit
 public class GameViewController: UIViewController {
     
     public var sceneView: SKView?
+    var label: UILabel?
     public var backpackProgram: [AstronautMoves] = [AstronautMoves]()
     private var scene:GameScene?
     var player: Player = Player()
@@ -33,6 +34,12 @@ public class GameViewController: UIViewController {
         }
         sceneView!.ignoresSiblingOrder = false
         self.view = sceneView!
+        
+        //Create label
+        label = UILabel(frame: CGRect(x: 20, y: 20, width: 500, height: 100))
+        label?.textColor = .white
+        label?.text = "Tap to run the backpack code"
+        self.view.addSubview(label!)
         
         //Start background music
         self.player.play()
@@ -87,6 +94,11 @@ extension GameViewController: SpaceDelegate{
     /// - Returns: the backpack Program
     public func getMoves() -> [AstronautMoves] {
         return backpackProgram
+    }
+    
+    /// The player start moving
+    func didStartMoving(){
+        self.label!.isHidden = true
     }
     
 }

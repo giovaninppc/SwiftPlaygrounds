@@ -176,6 +176,7 @@ public class GameScene: SKScene {
         
         //Start Moving
         if moving == false{
+            spaceDelegate?.didStartMoving()
             moving = true
             self.astronautNode.run(astronautMoveAction)
         }
@@ -257,5 +258,6 @@ extension GameScene: SKPhysicsContactDelegate{
 protocol SpaceDelegate{
     func didLeavePlanet()
     func didNotLeavePlanet()
+    func didStartMoving()
     func getMoves() ->  [AstronautMoves]
 }

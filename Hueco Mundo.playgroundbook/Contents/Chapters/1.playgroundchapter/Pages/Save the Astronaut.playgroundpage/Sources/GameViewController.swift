@@ -89,4 +89,7 @@ extension GameViewController: SpaceDelegate{
         return backpackProgram
     }
     
+    /// The player start moving
+    func didStartMoving(){}
+    
 }
