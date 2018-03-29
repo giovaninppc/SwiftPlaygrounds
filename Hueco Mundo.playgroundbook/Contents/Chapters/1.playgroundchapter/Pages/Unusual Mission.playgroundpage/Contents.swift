@@ -6,6 +6,9 @@ import PlaygroundSupport
 //: ## The little astronaut's mission on the Hollow World
 //: ### Giovani Nascimento Pereira - WWDC18
 /*:
+ 
+ *For best experience, use the iPad on landscape*
+ 
  Hello!
  
  You are a member of the SEA - Space Exploration Academy.

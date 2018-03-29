@@ -38,4 +38,4 @@ PlaygroundPage.current.liveView = astronaut
  */
 //: Edit the porgram on the line below, so you can save the astronaut.
 //Send program to the Backpack
-astronaut.programBackpack([/*#-editable-code */.up/*#-end-editable-code*/])
+astronaut.programBackpack([/*#-editable-code */.up, .up, .left, .left, .left, .left, .left/*#-end-editable-code*/])

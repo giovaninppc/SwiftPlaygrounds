@@ -152,6 +152,18 @@ public class GameScene: SKScene {
         }
     }
     
+    /// Move camera to a specific point and reescale the camera to 1
+    /// mostly used to follow a piece during its movement
+    ///
+    /// - Parameter position: The position to move to
+    func moveCamera(to position: CGPoint){
+        let movement = SKAction.move(to: position, duration: 1.0)
+        let scaleSize: CGFloat = 1.2
+        let scale = SKAction.scale(to: scaleSize, duration: 2.0)
+        camera?.run(movement)
+        camera?.run(scale)
+    }
+    
     /// If Touch - move the astronaut
     ///
     /// - Parameter tapGestureRecognizer: tapGesture
@@ -233,6 +245,7 @@ extension GameScene: SKPhysicsContactDelegate{
         let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         if collision ==  PhysicsCategory.astronaut | PhysicsCategory.exit{
             self.collided = true
+            moveCamera(to: CGPoint(x:-887, y: 550))
             astronautNode.run(SKAction.sequence([SKAction.move(to: CGPoint(x:-887, y: 550), duration: 3.0), SKAction.move(to: CGPoint(x:-602, y: 832), duration: 3.0)]))
             if let view = spaceDelegate{
                 view.didLeavePlanet()

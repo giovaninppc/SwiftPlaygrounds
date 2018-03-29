@@ -58,8 +58,22 @@ extension GameViewController: SpaceDelegate{
     
     /// The astronaut is free!
     func didLeavePlanet() {
+        
         let view = EndView(frame: CGRect(origin: CGPoint.zero, size: self.view.frame.size))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Add constraints
+        let topConstraint = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0)
+        let leftConstraint = NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0)
+        let rightConstraint = NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0)
+        
         self.view.addSubview(view)
+        self.view.addConstraints([topConstraint,leftConstraint,rightConstraint,bottomConstraint])
+        
+        //fade out music
+        self.player.fadeMusic()
+        
     }
     
     /// The astronaut is trapped!
