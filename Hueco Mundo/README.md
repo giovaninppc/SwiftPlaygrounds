@@ -7,7 +7,7 @@ It's a game where you need to program an astronaut, to move out of a hollow plan
 There is a Playgroundbook version, and a Xcode Playground version.
 The one submitted was the playgroundbook, but I used both to test during the development.
 
-![Playgroundbook Cover](Hueco\ Mundo.playgroundbook/Contents/PrivateResources/Billpsd.png "Playgroundbook Cover")
+![Playgroundbook Cover](Hueco\ Mundo.playgroundbook/Contents/PrivateResources/Billpsd.png)
 
 All the visual assests were made by handrawing on an iPad using the [Adobe Sketch](https://www.adobe.com/br/products/sketch.html) app.
 
