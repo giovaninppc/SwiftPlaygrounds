@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Environment'/>
+        <page name='Scale+Move+Rotate'/>
+        <page name='AnimatableProperties'/>
+        <page name='EaseEase'/>
+        <page name='PropertyAnimation'/>
+        <page name='CombineAnimations'/>
+    </pages>
+</playground>
