@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
+        <page name='Animations'/>
+        <page name='Uma tela qualquer'/>
+        <page name='UIKit'/>
+        <page name='Posicionando views'/>
+        <page name='Matemagica'/>
+        <page name='AnimationEngines'/>
         <page name='Environment'/>
         <page name='Scale+Move+Rotate'/>
         <page name='AnimatableProperties'/>

@@ -11,7 +11,6 @@ let animation: () -> Void = {
 }
 //: Vamos colocar em options [.repeat, .autoreverse], as animation options dão uma gama de funções comumento utilizadas em animações pra que a gente possa usar de maneira simples
 UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat, .autoreverse], animations: animation, completion: nil)
-
+//: E adicionar na tela para visualização
 PlaygroundPage.current.liveView = view
-
 //: [Next](@next)

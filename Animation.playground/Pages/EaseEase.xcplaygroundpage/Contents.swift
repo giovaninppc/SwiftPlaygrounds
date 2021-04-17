@@ -7,7 +7,6 @@ import UIKit
 //: - Ease in
 //: Ease out
 //: Ease in-out (default)
-
 let view = MultiSquareView(frame: .init(x: 0, y: 0, width: 500, height: 800))
 
 let squares = view.squares

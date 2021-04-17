@@ -1,4 +1,5 @@
 //: [Previous](@previous)
+//:
 //: A grande graça desses caras, é podermos combinar as animações, gerando uma combinação de todas as funções de interpolação entre os estados
 import UIKit
 import PlaygroundSupport
@@ -11,6 +12,8 @@ let animation: () -> Void = {
     square.transform = transform
         .concatenating(.init(rotationAngle: 90))
         .concatenating(.init(translationX: 0, y: -200))
+    square.layer.cornerRadius = 50.0
+    square.backgroundColor = .blue
 }
 
 UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat, .autoreverse], animations: animation, completion: nil)
