@@ -18,5 +18,4 @@ let animations: () -> Void = {
 UIView.animate(withDuration: 2.0, delay: 0.0, options: [.autoreverse, .repeat], animations: animations, completion: nil)
 
 PlaygroundPage.current.liveView = view
-
 //: [Next](@next)

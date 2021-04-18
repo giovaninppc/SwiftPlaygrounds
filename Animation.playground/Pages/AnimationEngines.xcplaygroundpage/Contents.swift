@@ -21,6 +21,10 @@
 
  ![](example.gif)
 
+ Note que nesse exemplo, Foram definidos 4 pontos de posição pra bolinha ao longo da linha do tempo, e quando executado, a Engine (After Effects) vai mover a bolinha entre esses 4 pontos usando a curva que interpola esses estados.
+
+ ![](time.png)
+
  > Animações desse tipo não envolvem apenas 1 interpolação 2D, mas sim várias e várias interpolações de vários objetos (2 ou 3D) ao longo go tempo.
 
  E a graça está em não apenas animar uma coisa de cada vez, mas sim várias propriedades da sua view ao mesmo tempo.

@@ -27,5 +27,4 @@ import PlaygroundSupport
 
 let view = UIView(frame: .init(x: 0, y: 0, width: 500, height: 800))
 PlaygroundPage.current.liveView = view
-
 //: [Next](@next)
