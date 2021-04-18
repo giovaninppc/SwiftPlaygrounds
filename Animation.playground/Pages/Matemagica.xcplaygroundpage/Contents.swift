@@ -1,4 +1,6 @@
 //: [Previous](@previous)
+import UIKit
+import PlaygroundSupport
 /*:
  ## Matemágica 🧙🏽‍♀️
 
@@ -47,10 +49,6 @@
 
  E o `UIKit` já nos provê com um framework de animação baseado exatamente nisso.
  */
-
-import UIKit
-import PlaygroundSupport
-
 let screen = UIView(frame: .init(x: 0, y: 0, width: 500, height: 800))
 
 let redSquare = UIView(frame: .init(x: 0, y: 0, width: 50, height: 50))

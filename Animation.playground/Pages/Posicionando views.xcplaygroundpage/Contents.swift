@@ -1,4 +1,6 @@
 //: [Previous](@previous)
+import UIKit
+import PlaygroundSupport
 /*:
 ## Posicionando Views
 
@@ -12,9 +14,6 @@
  Constraints permitem posicionar views na tela com dimensões, posições e tamanhos relativos à outras views!
  E a base da sua tela também é uma view! 😮.
  */
-
-import UIKit
-import PlaygroundSupport
 //: Aqui, como estamos num Playground, e não num dispositivo iOS, vamos simular a nossa tela como uma view em branco
 let screen = UIView(frame: .init(x: 0, y: 0, width: 500, height: 800))
 //: Vamos criar nosso quadrado e pintá-lo de vermelho
@@ -29,8 +28,7 @@ redSquare.centerYAnchor.constraint(equalTo: screen.centerYAnchor).isActive = tru
 redSquare.widthAnchor.constraint(equalToConstant: 50).isActive = true
 redSquare.heightAnchor.constraint(equalToConstant: 50).isActive = true
 //: Adicionar na cena para visualização
-screen.layoutIfNeeded()
+screen.layoutIfNeeded() // 🤫 Esse cara faz com que o sistema atualize as constraints aqui no playground!
 PlaygroundPage.current.needsIndefiniteExecution = true
-
 PlaygroundPage.current.liveView = screen
 //: [Next](@next)

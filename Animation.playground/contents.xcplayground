@@ -5,6 +5,7 @@
         <page name='Uma tela qualquer'/>
         <page name='UIKit'/>
         <page name='Posicionando views'/>
+        <page name='Usando componentes de verdade'/>
         <page name='Matemagica'/>
         <page name='AnimationEngines'/>
         <page name='Environment'/>

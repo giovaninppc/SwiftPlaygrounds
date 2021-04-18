@@ -1,5 +1,5 @@
 //: [Previous](@previous)
-//:
+//: ## Combinando animações
 //: A grande graça desses caras, é podermos combinar as animações, gerando uma combinação de todas as funções de interpolação entre os estados
 import UIKit
 import PlaygroundSupport

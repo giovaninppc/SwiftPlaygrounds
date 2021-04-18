@@ -1,8 +1,14 @@
 //: [Previous](@previous)
-//: ## Outras propriedades animáveis que são legais de se mexer com
 import UIKit
 import PlaygroundSupport
-
+//: ## Outras propriedades animáveis que são legais de se mexer com
+/*:
+ - Cor
+ - Opcidade (alpha)
+ - Corner radius
+ - Escala em X
+ - Escala em Y
+ */
 let view = MultiSquareView(frame: .init(x: 0, y: 0, width: 500, height: 800))
 
 let squares = view.squares
