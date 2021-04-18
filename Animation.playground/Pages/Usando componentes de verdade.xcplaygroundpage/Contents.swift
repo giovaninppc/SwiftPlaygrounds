@@ -72,7 +72,7 @@ let habilitiesHeaderLabel: UILabel = {
 
 let habilitiesLabel: UILabel = {
     let label = UILabel()
-    label.text = "• Dormir muito\n• Atormentar o lula molusco\n• Dormir embaixo de rochas\n• Cçar água vivas\n• Dormir\n• Comer\n• Dormir"
+    label.text = "• Dormir muito\n• Atormentar o lula molusco\n• Dormir embaixo de rochas\n• Caçar água vivas\n• Dormir\n• Comer\n• Dormir"
     label.textAlignment = .left
     label.numberOfLines = 0
     label.font = UIFont.systemFont(ofSize: 16.0)
@@ -128,6 +128,7 @@ habilitiesHeaderLabel.leadingAnchor.constraint(equalTo: screen.leadingAnchor, co
 habilitiesLabel.translatesAutoresizingMaskIntoConstraints = false
 habilitiesLabel.topAnchor.constraint(equalTo: habilitiesHeaderLabel.bottomAnchor, constant: 20.0).isActive = true
 habilitiesLabel.leadingAnchor.constraint(equalTo: screen.leadingAnchor, constant: 16.0).isActive = true
+habilitiesLabel.bottomAnchor.constraint(lessThanOrEqualTo: screen.bottomAnchor, constant: -20.0).isActive = true
 //: E finalmente, adicionar na cena para visualização
 screen.layoutIfNeeded()
 PlaygroundPage.current.needsIndefiniteExecution = true
