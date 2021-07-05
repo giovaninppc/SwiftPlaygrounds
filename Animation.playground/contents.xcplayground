@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='Animations'/>
         <page name='Uma tela qualquer'/>
@@ -14,5 +14,7 @@
         <page name='EaseEase'/>
         <page name='PropertyAnimation'/>
         <page name='CombineAnimations'/>
+        <page name='Bonus'/>
+        <page name='References'/>
     </pages>
 </playground>

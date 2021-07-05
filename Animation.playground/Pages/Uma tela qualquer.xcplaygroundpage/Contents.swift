@@ -10,7 +10,7 @@
  Por quê?
 
  Cada escala de cor ocupa 8bits de memória - 2^8 = 256 - então com 8 bits, podemos esolher valores de 0 a 255.
- E pra cada Pixel temos 3 canais de cor, então pra apenas 1 pixel da tela precisamos de 3*8 = 24 bits, ou 8 bytes.
+ E pra cada Pixel temos 3 canais de cor, então pra apenas 1 pixel da tela precisamos de 3*8 = 24 bits, ou 3 bytes.
 
  Uma tela, na verdade, lê uma posição de memória no seu computador (através dos cabos, vamos supor, uma entrada VGA),
  e atualiza os seus pixels com os valores que estão descritos lá.
@@ -24,8 +24,8 @@
  Se você quiser escrever algo numa tela, é essencialmente isso que você deve fazer!
 
  Então... no meu monitor de 1080 x 720 = 777.600 pixels, que tenha uma frequência de 60Hz...
- eu preciso escrever 777.600 * 8 = 6.220.800 bytes 60 vezes por segundo...
- o que me dá 6.220.800 * 60 = 373.248.000 bytes por segundo! 😱
+ eu preciso escrever 777.600 * 8 = 2.332.800 bytes 60 vezes por segundo...
+ o que me dá 2.332.800 * 60 = 139.968.000 bytes por segundo! 😱
 
  Sim... e não.
 
